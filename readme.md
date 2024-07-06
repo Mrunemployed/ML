@@ -14,7 +14,7 @@ A field of study that gives the computers an ability to learn without being expl
 
 ### Terminology
 
-- **Training Set -** Data set used to train the model $`_targets^features`$
+- **Training Set -** Data set used to train the model $`_{targets}^{features}`$
 - **Feature -** Standard notation to denote the input variable `x` in a data set.
 - **target -** Standard notation to denote the output variable `y` in a data set.
 - ***`m` -*** Number of training Examples (e.g. rows in a data set).
@@ -22,6 +22,7 @@ A field of study that gives the computers an ability to learn without being expl
     > Note: ***$`x^{2}`$*** does not mean ***square of `x`***, instead it means ***$`2^{nd}`$ Feature*** of the training set.
 - ***$`f`$*** - Called the **Model** is the $Function$, that is produced after the training set data is fed into the Supervised training algorithm.
 - ***$`\hat{y}`$*** - **Prediction** that was produced from the function $f$ for input of $x$.
+
 
 
 ## Supervised Learning
@@ -47,6 +48,9 @@ Regression is a type of supervised learning used in machine learning and statist
 
 For the number of inputs `x` there should be the same number of outputs `y` in the sample data.
 
+>[!Note]
+> **Formula for computing $f$**: f$_{w,b}$(x) = $wx+b$
+> When $f$ is a straight line.
 
 ---
 
