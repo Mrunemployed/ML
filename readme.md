@@ -14,12 +14,14 @@ A field of study that gives the computers an ability to learn without being expl
 
 ### Terminology
 
-- **Training Set -** Data set used to train the model
+- **Training Set -** Data set used to train the model $`_targets^features`$
 - **Feature -** Standard notation to denote the input variable `x` in a data set.
 - **target -** Standard notation to denote the output variable `y` in a data set.
 - ***`m` -*** Number of training Examples (e.g. rows in a data set).
 - ***$`(x^{(i)},y^{(j)})`$*** - Denotes the $i^{th}$ Feature and $j^{th}$ target of the training set as a training example (Basically used to denote the Feature and Target set being used as a training example).
 > Note : ***$`x^{2}`$*** does not mean ***square of `x`***, instead it means ***$`2^{nd}`$ Feature*** of the training set.
+- ***$`f`$*** - Function, that is produced after the training set data is fed into the Supervised training algorithm.
+- ***$`\hat{y}`$*** - Prediction that was produced from the function $f$.
 
 
 ## Supervised Learning
