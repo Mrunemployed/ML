@@ -49,7 +49,7 @@ Regression is a type of supervised learning used in machine learning and statist
 For the number of inputs `x` there should be the same number of outputs `y` in the sample data.
 
 >[!Note]
-> **Formula for computing $f$**: f$_{w,b}$(x) = $wx+b$
+> **Formula for computing $f$**: `f$_{w,b}$(x) = $wx+b$`
 > When $f$ is a straight line.
 
 ---
