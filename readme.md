@@ -19,6 +19,7 @@ A field of study that gives the computers an ability to learn without being expl
 - **target -** Standard notation to denote the output variable `y` in a data set.
 - ***`m` -*** Number of training Examples (e.g. rows in a data set).
 - ***$`(x^{(i)},y^{(j)})`$*** - Denotes the $i^{th}$ Feature and $j^{th}$ target of the training set as a training example (Basically used to denote the Feature and Target set being used as a training example).
+> E.G. : ***$`x^{2}`$*** does not mean ***square of `x`***, instead it means ***$2^{nd}$ Feature*** of the training set.
 
 
 ## Supervised Learning
