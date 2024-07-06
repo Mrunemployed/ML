@@ -19,7 +19,7 @@ A field of study that gives the computers an ability to learn without being expl
 - **target -** Standard notation to denote the output variable `y` in a data set.
 - ***`m` -*** Number of training Examples (e.g. rows in a data set).
 - ***$`(x^{(i)},y^{(j)})`$*** - Denotes the $i^{th}$ Feature and $j^{th}$ target of the training set as a training example (Basically used to denote the Feature and Target set being used as a training example).
-> E.G. : ***$`x^{2}`$*** does not mean ***square of `x`***, instead it means ***$2^{nd}$ Feature*** of the training set.
+> Note : ***$`x^{2}`$*** does not mean ***square of `x`***, instead it means ***$2^{nd}$ Feature*** of the training set.
 
 
 ## Supervised Learning
@@ -31,6 +31,7 @@ In supervised learning the ML Algorithm is given an imput `x` and for every inpu
 1. Regression
 2. Classification
 
+---
 
 ### 1. Regression
 
@@ -45,14 +46,16 @@ Regression is a type of supervised learning used in machine learning and statist
 For the number of inputs `x` there should be the same number of outputs `y` in the sample data.
 
 
+---
+
 
 ### 2. Classification
 
 >[!Tip]
 >This model will only have specific outputs. These outputs will be labelled/Classified 
 Model will only have Specific outputs. These outputs will be labelled/Classified into classification.
----
-E.G.
+
+Note:
 
 ```
 Table
@@ -68,11 +71,17 @@ Diagnosis: Malignant (1) or Benign (0)
 |   7           |   1       |
 +---------------+-----------+
 ```
+
 The table above shows the data for patients being diagnosed for breast cancer with lumps in cms,the resulting diagnosis that was done for each of these sizes. 
 The Diagnosis is either Benign or Malignant - These will be our classification, now according to the inputs in size our **ML model will be able to predict whether the diagnosis will be either of these two classifications**
+
 ---
+
 - In classification the terms ***class*** and ***category*** are used interchangeably.
 - More than one inputs can be used. 
+
+
+---
 
 ## *Un*supervised Learning
 >[!Tip]
