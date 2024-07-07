@@ -60,7 +60,7 @@ For the number of inputs `x` there should be the same number of outputs `y` in t
 
 The goal of the is to find a value of $w$ and $b$ such that $j_{(w,b)}$ - the cost function is at a minimum.
 
-> $$^{min}_{w,b} J_{(w,b)}$$
+$$^{min}_{w,b}J_{(w,b)}$$
 
 This way we will be able to arrive at the values of $w$ and $b$ that fits our training set really well.
 
