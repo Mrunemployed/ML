@@ -58,30 +58,40 @@ For the number of inputs `x` there should be the same number of outputs `y` in t
 
 ![Model](image.png)
 
-Model : $f_{w,b}(x^{(i)}) = wx^{(i)} + b$
+**Model :** 
 
-Cost Function : $\frac{1}{2m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})$
-
-Gradient Descent: 
-
-$w = w - \alpha.\frac{\partial }{\partial w}J_{(w,b)}$
-
-$b = b - \alpha.\frac{\partial }{\partial b}J_{(w,b)}$
-
-Alternatively,
+$$f_{w,b}(x^{(i)}) = wx^{(i)} + b$$
 
 
-$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)}).x^{(i)}]$
+**Cost Function :** 
+
+$$\frac{1}{2m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})$$
 
 
-$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})]$
 
-or,
+**Gradient Descent:**
+
+$$w = w - \alpha.\frac{\partial }{\partial w}J_{(w,b)}$$
+
+$$b = b - \alpha.\frac{\partial }{\partial b}J_{(w,b)}$$
+
+
+
+**Alternatively,**
+
+$$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)}).x^{(i)}]$$
+
+$$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})]$$
+
+
+
+**Finally,**
 
 > $$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)}).x^{(i)}]$$
 >
 > $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$$
 >
+
 
 ---
 
