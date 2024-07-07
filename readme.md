@@ -65,7 +65,7 @@ $$f_{w,b}(x^{(i)}) = wx^{(i)} + b$$
 
 **Cost Function :** 
 
-$$\frac{1}{2m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})$$
+$$J_{(w,b)} = \frac{1}{2m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})$$
 
 
 
