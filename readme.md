@@ -44,16 +44,43 @@ In supervised learning the ML Algorithm is given an imput `x` and for every inpu
 The model has to output a number after analyzing the input, it may produce infinitely possible outcomes.
 Regression is a type of supervised learning used in machine learning and statistics to predict a continuous outcome variable based on one or more predictor variables. The goal of regression is to model the relationship between the dependent variable (the outcome we want to predict) and the independent variables (the predictors). Infinitely many outputs `y` that are possible are predicted.
 
-- ##### Linear Regression
+#### Linear Regression (Univariate Linear Regression)
 
+Linear regression is a statistical method used to model the relationship between a dependent variable and one or more independent variables by fitting a linear equation to observed data. Using a single variable or input here in the regression model.
 For the number of inputs `x` there should be the same number of outputs `y` in the sample data.
 
 >[!Note]
-> **Formula for computing $f$** -  **$f_{w,b}$(x) = $wx+b$**, When $f$ is a straight line.
+> **Model $f$** ->  **$f_{w,b}$(x) = $wx+b$**, When $f$ is a straight line.
 
 >[!Tip]
 > $f$ is the function that makes prediction  **$`\hat{y}`$** based on **$_{w,b}$** which are numbers for the input feature $`x`$. <br>
 >**Alternatively** or simply $f(x)$ = $wx+b$.
+
+![Model](image.png)
+
+Model : $f_{w,b}(x^{(i)}) = wx^{(i)} + b$
+
+Cost Function : $\frac{1}{2m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})$
+
+Gradient Descent: 
+
+$w = w - \alpha.\frac{\partial }{\partial w}J_{(w,b)}$
+
+$b = b - \alpha.\frac{\partial }{\partial b}J_{(w,b)}$
+
+Alternatively,
+
+
+$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)}).x^{(i)}]$
+
+
+$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})]$
+
+or,
+
+$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)}).x^{(i)}]$
+
+$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$
 
 
 ---
