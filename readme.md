@@ -58,6 +58,16 @@ For the number of inputs `x` there should be the same number of outputs `y` in t
 
 ![Model](image.png)
 
+The goal of the is to find a value of $w$ and $b$ such that $j_{(w,b)}$ - the cost function is at a minimum.
+
+> $$ ^min_w,_b J_{(w,b)} $$
+
+This way we will be able to arrive at the values of $w$ and $b$ that fits our training set really well.
+
+Now in order to do this automatically we will use gradient Descent.
+The goal of the gradient descent is to find a value of $w$ and $b$ such that $j_{(w,b)}$ is at a minimum.
+
+
 **Model :** 
 
 $$f_{w,b}(x^{(i)}) = wx^{(i)} + b$$
