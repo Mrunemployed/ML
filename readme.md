@@ -102,6 +102,10 @@ $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})]$$
 > $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$$
 >
 
+#### Multivalue Linear Regression
+
+Using multiple values or features in Linear Regression model.
+
 
 ---
 

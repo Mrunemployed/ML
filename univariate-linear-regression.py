@@ -114,6 +114,6 @@ class UnilinearDescent():
         return cost
 
 b = UnilinearDescent(10000)
-prediction = b.predict_cost(1.2)
+prediction = b.predict_cost(2.3)
 print(f"prediction: ${prediction:0.1f} thousand")
 
