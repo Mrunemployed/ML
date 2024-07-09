@@ -132,9 +132,9 @@ $$\frac{\partial }{\partial b}J_{(w,b)}$$
 
 ---
 which is,
-$$\frac{1}{m}\sum_{i=0}^m[((f_w,_b(x^{(i)})-y^{(i)}).x^{(i)})]$$ 
+$$\frac{1}{m}\sum_{i=0}^m[(f_w,_b(x^{(i)})-y^{(i)}).x^{(i)}]$$ 
 
-$$\frac{1}{m}\sum_{i=0}^m [(((w.x^{(i)} +b )-y^{(i)}).x^{(i)})]$$
+$$\frac{1}{m}\sum_{i=0}^m [((w.x^{(i)} +b )-y^{(i)}).x^{(i)}]$$
 
 ---
 
