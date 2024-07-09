@@ -90,7 +90,7 @@ class UnilinearDescent():
             f_wbx = w*x_t[i] + b
             sum_w = sum_w + (f_wbx - y_t[i]) * x_t[i]
             sum_b = sum_b + (f_wbx - y_t[i])
-        # print("sum_w: ",sum_w,"\nsum_b: ",sum_b)
+        # print("sum_w: ",sum_w/m,"\nsum_b: ",sum_b/m)
         return sum_w/m,sum_b/m
         
     def grad_desc(self,alpha:float,iter:int):
@@ -114,6 +114,6 @@ class UnilinearDescent():
         return cost
 
 b = UnilinearDescent(10000)
-prediction = b.predict_cost(2.3)
+prediction = b.predict_cost(1.3)
 print(f"prediction: ${prediction:0.1f} thousand")
 

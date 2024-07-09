@@ -23,6 +23,23 @@ A field of study that gives the computers an ability to learn without being expl
 - ***$`f`$*** - Called the **Model** is the $Function$, that is produced after the training set data is fed into the Supervised training algorithm.
 - ***$`\hat{y}`$*** - **Prediction** that was produced from the function $f$ for input of $x$.
 
+## 1.3 Notation
+Here is a summary of some of the notation you will encounter, updated for multiple features.  
+
+|General <img width=70/> <br />  Notation  <img width=70/> | Description<img width=350/>| Python (if applicable) |
+|: ------------|: ------------------------------------------------------------||
+| $a$ | scalar, non bold                                                      ||
+| $\mathbf{a}$ | vector, bold                                                 ||
+| $\mathbf{A}$ | matrix, bold capital                                         ||
+| **Regression** |         |    |     |
+|  $\mathbf{X}$ | training example matrix                  | `X_train` |   
+|  $\mathbf{y}$  | training example  targets                | `y_train` 
+|  $\mathbf{x}^{(i)}$, $y^{(i)}$ | $i_{th}$Training Example | `X[i]`, `y[i]`|
+| m | number of training examples | `m`|
+| n | number of features in each example | `n`|
+|  $\mathbf{w}$  |  parameter: weight,                       | `w`    |
+|  $b$           |  parameter: bias                                           | `b`    |     
+| $f_{\mathbf{w},b}(\mathbf{x}^{(i)})$ | The result of the model evaluation at $\mathbf{x^{(i)}}$ parameterized by $\mathbf{w},b$: $f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot \mathbf{x}^{(i)}+b$  | `f_wb` | 
 
 
 ## Supervised Learning
@@ -44,7 +61,7 @@ In supervised learning the ML Algorithm is given an imput `x` and for every inpu
 The model has to output a number after analyzing the input, it may produce infinitely possible outcomes.
 Regression is a type of supervised learning used in machine learning and statistics to predict a continuous outcome variable based on one or more predictor variables. The goal of regression is to model the relationship between the dependent variable (the outcome we want to predict) and the independent variables (the predictors). Infinitely many outputs `y` that are possible are predicted.
 
-#### Linear Regression (Univariate Linear Regression)
+## Linear Regression (Univariate Linear Regression)
 
 Linear regression is a statistical method used to model the relationship between a dependent variable and one or more independent variables by fitting a linear equation to observed data. Using a single variable or input here in the regression model.
 For the number of inputs `x` there should be the same number of outputs `y` in the sample data.
@@ -89,7 +106,7 @@ $$b = b - \alpha.\frac{\partial }{\partial b}J_{(w,b)}$$
 
 **Alternatively,**
 
-$$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)}).x^{(i)}]$$
+$$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m ((f_w,_b(x^{(i)})-y^{(i)}).x^{(i)})]$$
 
 $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})]$$
 
@@ -97,10 +114,81 @@ $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})]$$
 
 **Finally,**
 
-> $$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)}).x^{(i)}]$$
+> $$w = w - \alpha . [\frac{1}{m}\sum_{i=0}^m (((w.x^{(i)} +b )-y^{(i)}).x^{(i))}]$$
 >
 > $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$$
 >
+
+In code:
+
+ Compute the derivative of:
+ for w $$\frac{\partial }{\partial w}J_{(w,b)}$$ and,
+ for b $$\frac{\partial }{\partial b}J_{(w,b)}$$
+ which is 
+ $$((f_w,_b(x^{(i)})-y^{(i)}).x^{(i)})$$ for w,
+ $$[\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$$ for b.
+
+ the code should compute the derivates and update values of $w$ and $b$ at once consistently,
+ The updated values of $w$ and $b$ should not interfere with one another.
+
+Here we are computing the derivative of $\frac{\partial }{\partial w}J_{(w,b)}$ and $\frac{\partial }{\partial b}J_{(w,b)}$
+
+ ```python
+sum_w,sum_b = 0.0,0.0
+for i in range(m):    
+    f_wb_x = (w*x_t[i] + b) - y_t[i]
+    sum_w = sum_w + f_wb_x*x_t[i]
+    sum_b = sum_b + f_wb_x
+sum_w = sum_w/m
+sum_b = sum_b/m
+return sum_w,sum_b
+
+ ```
+After we need to update the values of $w$ and $b$ at the same time by reducing $\alpha$ * to $\frac{\partial }{\partial w}J_{(w,b)}$ and $\frac{\partial }{\partial b}J_{(w,b)}$:
+
+```python
+
+dq,w,db,b = 0.,0.,0.,0.
+for i in range(self.iter):
+    dw,db = self.derivative("single",w,b)
+    w = w - alpha*dw
+    b = b - alpha*db
+    if i%1000 == 0 :
+        print(f"w : {w} , b : {b}")
+return w,b
+
+```
+>[!Note]
+> It is very important to note that the formula converted into code stays true to the its original meaning.
+> This is applicable for all the **ML** Algorithms.
+
+### Incorrect Approach:
+
+The following approach may look like the updates of w and b are happening simultaneously but its is not the case.
+
+>[!Tip]
+> The derivative is a function that calculates the $\frac{\partial}{\partial w}J_{(w,b)}$ for w and b
+
+```python
+tempw, w, tempb, b = 0., 0., 0., 0.
+for i in range(self.iter):
+    tempw, tempb = self.derivative("single", w, b)
+    tempw = tempw - alpha * tempw
+    tempb = tempb - alpha * tempb
+    w = tempw
+    b = tempb
+```
+
+The above approach roughly translates to `tempw = ∂L/∂w - alpha * ∂L/∂w = ∂L/∂w * (1 - alpha)` or,
+
+$$\frac{\partial}{\partial w}J_{(w,b)} - \alpha . \frac{\partial}{\partial w}J_{(w,b)}$$
+
+**But**,
+
+the actual formula is: 
+
+$$ w -\alpha . \frac{\partial}{\partial w}J_{(w,b)}$$
+
 
 #### Multivalue Linear Regression
 
