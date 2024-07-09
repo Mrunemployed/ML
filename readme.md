@@ -119,13 +119,17 @@ $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})]$$
 > $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$$
 >
 
+---
+
 **In code:**
 
 Compute the derivative of $w$ and $b$:
 
+
 $$\frac{\partial }{\partial w}J_{(w,b)}$$
 
 $$\frac{\partial }{\partial b}J_{(w,b)}$$
+
 ---
 which is,
 $$((f_w,_b(x^{(i)})-y^{(i)}).x^{(i)})$$ 
