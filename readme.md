@@ -119,17 +119,23 @@ $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m (f_w,_b(x^{(i)})-y^{(i)})]$$
 > $$b = b - \alpha . [\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$$
 >
 
-In code:
+**In code:**
 
- Compute the derivative of:
- for w $$\frac{\partial }{\partial w}J_{(w,b)}$$ and,
- for b $$\frac{\partial }{\partial b}J_{(w,b)}$$
- which is 
- $$((f_w,_b(x^{(i)})-y^{(i)}).x^{(i)})$$ for w,
- $$[\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$$ for b.
+Compute the derivative of $w$ and $b$:
 
- the code should compute the derivates and update values of $w$ and $b$ at once consistently,
- The updated values of $w$ and $b$ should not interfere with one another.
+$$\frac{\partial }{\partial w}J_{(w,b)}$$
+
+$$\frac{\partial }{\partial b}J_{(w,b)}$$
+---
+which is,
+$$((f_w,_b(x^{(i)})-y^{(i)}).x^{(i)})$$ 
+
+$$[\frac{1}{m}\sum_{i=0}^m ((w.x^{(i)} +b )-y^{(i)})]$$
+
+---
+
+The code should compute the derivates and update values of $w$ and $b$ at once consistently,
+The updated values of $w$ and $b$ should not interfere with one another.
 
 Here we are computing the derivative of $\frac{\partial }{\partial w}J_{(w,b)}$ and $\frac{\partial }{\partial b}J_{(w,b)}$
 
@@ -144,7 +150,7 @@ sum_b = sum_b/m
 return sum_w,sum_b
 
  ```
-After we need to update the values of $w$ and $b$ at the same time by reducing $\alpha$ * to $\frac{\partial }{\partial w}J_{(w,b)}$ and $\frac{\partial }{\partial b}J_{(w,b)}$:
+After we need to update the values of $w$ and $b$ at the same time by reducing $\alpha$ of $\frac{\partial }{\partial w}J_{(w,b)}$ and $\frac{\partial }{\partial b}J_{(w,b)}$:
 
 ```python
 
