@@ -200,10 +200,180 @@ the actual formula is:
 $$ w -\alpha . \frac{\partial}{\partial w}J_{(w,b)}$$
 
 
-#### Multivalue Linear Regression
+## Multivalue Linear Regression
 
 Using multiple values or features in Linear Regression model.
 
+---
+| Size (sqft) | Number of Bedrooms  | Number of floors | Age of  Home | Price (1000s dollars)  |   
+| ----------------| ------------------- |----------------- |--------------|-------------- |  
+| 2104            | 5                   | 1                | 45           | 460           |  
+| 1416            | 3                   | 2                | 40           | 232           |  
+| 852             | 2                   | 1                | 35           | 178           |  
+
+You will build a linear regression model using these values so you can then predict the price for other houses. For example, a house with 1200 sqft, 3 bedrooms, 1 floor, 40 years old.
+---
+
+
+X is no longer a single feature in this types of regression models. Instead x is a set of features.
+Y is the target.
+
+```python
+
+X_train = np.array([[2104, 5, 1, 45], [1416, 3, 2, 40], [852, 2, 1, 35]])
+y_train = np.array([460, 232, 178])
+
+```
+### Parameter vector w, b
+
+* $\mathbf{w}$ is a vector with $n$ elements.
+  - Each element contains the parameter associated with one feature.
+  - in our dataset, n is 4.
+  - notionally, we draw this as a column vector
+
+$$\mathbf{w} = \begin{pmatrix}
+w_0 \\ 
+w_1 \\
+\cdots\\
+w_{n-1}
+\end{pmatrix}
+$$
+* $b$ is a scalar parameter.  
+
+
+### Matrix of x Features
+
+$$\mathbf{X} = 
+\begin{pmatrix}
+ x^{(0)}_0 & x^{(0)}_1 & \cdots & x^{(0)}_{n-1} \\ 
+ x^{(1)}_0 & x^{(1)}_1 & \cdots & x^{(1)}_{n-1} \\
+ \cdots \\
+ x^{(m-1)}_0 & x^{(m-1)}_1 & \cdots & x^{(m-1)}_{n-1} 
+\end{pmatrix}
+$$
+notation:
+- $\mathbf{x}^{(i)}$ is vector containing example i. $\mathbf{x}^{(i)}$ $ = (x^{(i)}_0, x^{(i)}_1, \cdots,x^{(i)}_{n-1})$
+- $x^{(i)}_j$ is element j in example i. The superscript in parenthesis indicates the example number while the subscript represents an element. 
+
+---
+
+### Model Prediction With Multiple Variables
+The model's prediction with multiple variables is given by the linear model:
+
+$$ f_{\mathbf{w},b}(\mathbf{x}) =  w_0x_0 + w_1x_1 +... + w_{n-1}x_{n-1} + b \tag{1}$$
+or in vector notation:
+$$ f_{\mathbf{w},b}(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b  \tag{2} $$ 
+where $\cdot$ is a vector `dot product`
+
+### Gradient Descent With Multiple Variables
+
+Gradient descent for multiple variables:
+
+$$\begin{align*} \text{repeat}&\text{ until convergence:} \; \lbrace \newline\;
+& w_j = w_j -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial w_j} \tag{5}  \; & \text{for j = 0..n-1}\newline
+&b\ \ = b -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial b}  \newline \rbrace
+\end{align*}$$
+
+where, n is the number of features, parameters $w_j$,  $b$, are updated simultaneously and where  
+
+$$
+\begin{align}
+\frac{\partial J(\mathbf{w},b)}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})x_{j}^{(i)} \tag{6}  \\
+\frac{\partial J(\mathbf{w},b)}{\partial b}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)}) \tag{7}
+\end{align}
+$$
+* m is the number of training examples in the data set
+
+    
+*  $f_{\mathbf{w},b}(\mathbf{x}^{(i)})$ is the model's prediction, while $y^{(i)}$ is the target value
+
+
+## The Code
+
+>[!Note]
+> $w$ is a vector of size $n$ and $n$ is the number of features or columns in the ***training set X_train***.
+> $b$ is a scalar.
+> $J_{(w,b)} is a scalar as well.
+
+The gradient of the cost function needs to be calculated by  $\frac{1}\{m}\sum_{i=0}^m [((\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$ .
+So the values of $w_1$ all the way up till $w_n$ for $x^{(i)}_1$ to $x^{(i)}_n$ and summed.
+
+In simpler terms all the features of the training set ***X_train*** is being summed from 1 ... n for w[1]...w[n]
+
+## **In Implementation**
+
+
+The algorithm has three parts here as well roughly, 
+- **the cost function or error calculation** -  which in terms of the gradient descent algorithm translates to the derivative section of the algorithm, except that for multivalue linear regression models its a dot product of the vectors $(\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )$.
+- **The learning algorithm of Gradient descent** - The value of $w$ and $b$ is deducted from itelf times the learning rate $\alpha$.
+- **The value prediction** Using the multivalue linear regression model to calculate the predicted value.
+
+## **Calculating the Derivative section of Gradient Descent Algorithm**
+>[!Tip]
+>I have found it to be often easier to split the Algorithm equation into segments and process those segments as different functions before tying the results together and completing the equation.
+> For example the operation of dot product of the vectors of $w$ and $x^{(i)}$ and the $\sum$ operation of the derivative function (${\frac{\partial J}{\partial w}}$) of the gradient descent algorithm.
+
+```python
+
+for i in range(m):
+    j_wb = np.dot(w,x_t[i]) + b - y_t[i]
+    db = db + j_wb
+    for j in range(n):
+        dw[j] = dw[j] + j_wb*x_t[i,j]
+return dw/m,db/m
+
+```
+
+**Explaination**
+
+- This will give us the derivative of the gradient descent algorithm.
+- Here b is being calculated as usual since b is a scalar.
+- **j_wb is the error margin that is being calculated by a dot product of the vectors of $w$ and $x$.**
+- `dw[j] = dw[j] + j_wb*x_t[i,j]` **is the equivalent of $[((\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$**
+- `return dw/m,db/m` returns the derivative of the gradient descent after calculating the mean.
+
+>[!Tip]
+> x_t[i] is a vector and a subset of X_train, the reason its a vector is because its a row of the 2D array X_train which is an array of size $n$.
+
+
+## **The learning algorithm of Gradient descent**
+
+```python
+
+for i in range(self.iterations):
+    dw,db = self.compute_gradient(w,b)
+    w = w - alpha*dw
+    b = b - alpha*db
+print("learn_gradient: ",w,b)
+return w,b
+
+```
+
+**Explaination**
+
+- `dw` and `db` are the values returned after calculating the derivatives.
+- Then the values of `w` and `b` are updated by the learning rate $\alpha$.
+- Since `w` and `b` are vectors, the vector multiplication and vector substraction is happening here`w = w - alpha*dw`.
+- Finally the values of w and b are returned.
+- This stays true to the original equation.
+
+>[!Note]
+>The equation is:
+> $$ \frac{\partial J(\mathbf{w},b)}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})x_{j}^{(i)} \tag{6} $$
+
+
+## **The value prediction**
+
+>[!Note]
+>The equation
+> $$\overrightarrow{w}.\overrightarrow{x}^{(i)} +b$$
+
+```python
+
+p = np.dot(w,x_in) + b
+return p
+
+```
 
 ---
 
