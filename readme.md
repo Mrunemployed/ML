@@ -25,22 +25,22 @@ A field of study that gives the computers an ability to learn without being expl
 
 ## 1.3 Notation
 ---
-Here is a summary of some of the notation you will encounter, updated for multiple features.  
+Here is a summary of some of the notations, updated for multiple features.  
 
-|General <img width=70/> <br />  Notation  <img width=70/> | Description<img width=350/>| Python (if applicable) |
-|: ------------|: ------------------------------------------------------------||
-| $a$ | scalar, non bold                                                      ||
-| $\mathbf{a}$ | vector, bold                                                 ||
-| $\mathbf{A}$ | matrix, bold capital                                         ||
-| **Regression** |         |    |     |
-|  $\mathbf{X}$ | training example matrix                  | `X_train` |   
-|  $\mathbf{y}$  | training example  targets                | `y_train` 
-|  $\mathbf{x}^{(i)}$, $y^{(i)}$ | $i_{th}$Training Example | `X[i]`, `y[i]`|
-| m | number of training examples | `m`|
-| n | number of features in each example | `n`|
-|  $\mathbf{w}$  |  parameter: weight,                       | `w`    |
-|  $b$           |  parameter: bias                                           | `b`    |     
-| $f_{\mathbf{w},b}(\mathbf{x}^{(i)})$ | The result of the model evaluation at $\mathbf{x^{(i)}}$ parameterized by $\mathbf{w},b$: $f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot \mathbf{x}^{(i)}+b$  | `f_wb` | 
+| General Notation                  | Description                                                                                       | Python (if applicable) |
+|:----------------------------------|:--------------------------------------------------------------------------------------------------|:-----------------------|
+| \( a \)                           | scalar, non bold                                                                                  |                        |
+| \( \mathbf{a} \)                  | vector, bold                                                                                      |                        |
+| \( \mathbf{A} \)                  | matrix, bold capital                                                                              |                        |
+| **Regression**                    |                                                                                                   |                        |
+| \( \mathbf{X} \)                  | training example matrix                                                                           | `X_train`              |
+| \( \mathbf{y} \)                  | training example targets                                                                          | `y_train`              |
+| \( \mathbf{x}^{(i)}, y^{(i)} \)   | \( i \)-th Training Example                                                                       | `X[i]`, `y[i]`         |
+| \( m \)                           | number of training examples                                                                       | `m`                    |
+| \( n \)                           | number of features in each example                                                                | `n`                    |
+| \( \mathbf{w} \)                  | parameter: weight                                                                                 | `w`                    |
+| \( b \)                           | parameter: bias                                                                                   | `b`                    |
+| \( f_{\mathbf{w},b}(\mathbf{x}^{(i)}) \) | The result of the model evaluation at \( \mathbf{x}^{(i)} \) parameterized by \( \mathbf{w},b \): \( f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot \mathbf{x}^{(i)} + b \) | `f_wb`                 |
 
 ---
 
