@@ -23,7 +23,7 @@ A field of study that gives the computers an ability to learn without being expl
 - ***$`f`$*** - Called the **Model** is the $Function$, that is produced after the training set data is fed into the Supervised training algorithm.
 - ***$`\hat{y}`$*** - **Prediction** that was produced from the function $f$ for input of $x$.
 
-## 1.3 Notation
+### 1.3 Notation
 ---
 Here is a summary of some of the notations, updated for multiple features.  
 
@@ -55,7 +55,7 @@ In supervised learning the ML Algorithm is given an imput `x` and for every inpu
 
 
 
-### 1. Regression
+## 1. Regression
 
 >[!Tip]
 >In these types of models the predictions or outputs `y` can be infinite.
@@ -63,7 +63,7 @@ In supervised learning the ML Algorithm is given an imput `x` and for every inpu
 The model has to output a number after analyzing the input, it may produce infinitely possible outcomes.
 Regression is a type of supervised learning used in machine learning and statistics to predict a continuous outcome variable based on one or more predictor variables. The goal of regression is to model the relationship between the dependent variable (the outcome we want to predict) and the independent variables (the predictors). Infinitely many outputs `y` that are possible are predicted.
 
-## Linear Regression (Univariate Linear Regression)
+### Linear Regression (Univariate Linear Regression)
 
 Linear regression is a statistical method used to model the relationship between a dependent variable and one or more independent variables by fitting a linear equation to observed data. Using a single variable or input here in the regression model.
 For the number of inputs `x` there should be the same number of outputs `y` in the sample data.
@@ -205,7 +205,7 @@ the actual formula is:
 $$ w -\alpha . \frac{\partial}{\partial w}J_{(w,b)}$$
 
 
-## Multivalue Linear Regression
+### Multivalue Linear Regression
 
 Using multiple values or features in Linear Regression model.
 
@@ -268,6 +268,7 @@ notation:
 ---
 
 ### Model Prediction With Multiple Variables
+
 The model's prediction with multiple variables is given by the linear model:
 
 $$ f_{(\overrightarrow{w},b)}(\overrightarrow{x}) =  w_0x_0 + w_1x_1 + \cdots + w_{n-1}.x_{n-1} + b $$
@@ -293,7 +294,7 @@ $$\begin{align}\frac{\partial J(\mathbf{w},b)}{\partial w_j}  &= \frac{1}{m} \su
 *  $f_{\mathbf{w},b}(\mathbf{x}^{(i)})$ is the model's prediction, while $y^{(i)}$ is the target value
 
 
-## The Code
+### The Code
 
 >[!Note]
 > $w$ is a vector of size $n$ and $n$ is the number of features or columns in the ***training set X_train***.
@@ -307,7 +308,7 @@ So the values of $w_1$ all the way up till $w_n$ for $x^{(i)}_1$ to $x^{(i)}_n$ 
 
 In simpler terms all the features of the training set ***X_train*** is being summed from 1 ... n for w[1]...w[n]
 
-## **In Implementation**
+### **In Implementation**
 
 
 The algorithm has three parts here as well roughly, 
@@ -316,7 +317,7 @@ The algorithm has three parts here as well roughly,
 - **The learning algorithm of Gradient descent** - The value of $w$ and $b$ is deducted from itelf times the learning rate $\alpha$.
 - **The value prediction** Using the multivalue linear regression model to calculate the predicted value.
 
-## **Calculating the Derivative section of Gradient Descent Algorithm**
+#### **Calculating the Derivative section of Gradient Descent Algorithm**
 >[!Tip]
 >I have found it to be often easier to split the Algorithm equation into segments and process those segments as different functions before tying the results together and completing the equation.
 > For example the operation of dot product of the vectors of $w$ and $x^{(i)}$ and the $\sum$ operation of the derivative function (${\frac{\partial J}{\partial w}}$) of the gradient descent algorithm.
@@ -344,7 +345,7 @@ return dw/m,db/m
 > x_t[i] is a vector and a subset of X_train, the reason its a vector is because its a row of the 2D array X_train which is an array of size $n$.
 
 
-## **The learning algorithm of Gradient descent**
+#### **The learning algorithm of Gradient descent**
 
 ```python
 
@@ -373,7 +374,7 @@ return w,b
 - This stays true to the original equation.
 
 
-## **The value prediction**
+#### **The value prediction**
 
 >[!Note]
 >The equation
@@ -385,11 +386,7 @@ p = np.dot(w,x_in) + b
 return p
 
 ```
-
----
-
-
-### 2. Classification
+## 2. Classification
 
 >[!Tip]
 >This model will only have specific outputs. These outputs will be labelled/Classified 
