@@ -250,14 +250,13 @@ $$
 
 
 
-$$
-\overrightarrow{X} = \begin{pmatrix}
+$\overrightarrow{X} = \begin{pmatrix}
  x^{(0)}_0 & x^{(0)}_1 & \cdots & x^{(0)}_{n-1} \\ 
  x^{(1)}_0 & x^{(1)}_1 & \cdots & x^{(1)}_{n-1} \\
  \vdots & \vdots & \ddots & \vdots \\
  x^{(m-1)}_0 & x^{(m-1)}_1 & \cdots & x^{(m-1)}_{n-1} 
 \end{pmatrix}
-$$
+$
 
 
 
