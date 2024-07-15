@@ -216,7 +216,7 @@ Using multiple values or features in Linear Regression model.
 | 1416            | 3                   | 2                | 40           | 232           |  
 | 852             | 2                   | 1                | 35           | 178           |  
 
-You will build a linear regression model using these values so you can then predict the price for other houses. For example, a house with 1200 sqft, 3 bedrooms, 1 floor, 40 years old.
+ You will build a linear regression model using these values so you can then predict the price for other houses. For example, a house with 1200 sqft, 3 bedrooms, 1 floor, 40 years old.
 ---
 
 
@@ -248,17 +248,17 @@ $$
 
 ### Matrix of x Features
 
-$$
-\overrightarrow{X} = 
+$$\overrightarrow{X} = 
 \begin{pmatrix}
- x^{(0)}_0 & x^{(0)}_1 & \cdots & x^{(0)}_{n-1} \\ 
- x^{(1)}_0 & x^{(1)}_1 & \cdots & x^{(1)}_{n-1} \\
- \vdots & \vdots & \ddots & \vdots \\
- x^{(m-1)}_0 & x^{(m-1)}_1 & \cdots & x^{(m-1)}_{n-1} 
-\end{pmatrix}
-$$
+ x^{(0)}_0 & x^{(0)}_1 \cdots x^{(0)}_{n-1} \\ 
+ x^{(1)}_0 & x^{(1)}_1 \cdots x^{(1)}_{n-1} \\
+ \vdots \vdots \ddots \vdots \\
+ x^{(m-1)}_0 x^{(m-1)}_1 \cdots x^{(m-1)}_{n-1} 
+\end{pmatrix}$$
+
 notation:
-- $\mathbf{x}^{(i)}$ is vector containing example i. $\mathbf{x}^{(i)}$ $ = (x^{(i)}_0, x^{(i)}_1, \cdots,x^{(i)}_{n-1})$
+
+- $\mathbf{x}^{(i)}$ is vector containing example i. $\mathbf{x}^{(i)}$  = $(x^{(i)}_0, x^{(i)}_1, \cdots,x^{(i)}_{n-1})$
 - $x^{(i)}_j$ is element j in example i. The superscript in parenthesis indicates the example number while the subscript represents an element. 
 
 ---
@@ -293,8 +293,8 @@ $$\begin{align}\frac{\partial J(\mathbf{w},b)}{\partial w_j}  &= \frac{1}{m} \su
 
 >[!Note]
 > $w$ is a vector of size $n$ and $n$ is the number of features or columns in the ***training set X_train***.
-> *** $b$ *** is a scalar.
-> *** $J_{(w,b)}$ *** is a scalar as well.
+> $b$ is a scalar.
+> $J_{(w,b)}$ is a scalar as well.
 
 The gradient of the cost function needs to be calculated by  
 $$\frac{1}\{m}\sum_{i=0}^m [((\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$$
@@ -355,16 +355,18 @@ return w,b
 
 **Explaination**
 
-- `dw` and `db` are the values returned after calculating the derivatives.
-- Then the values of `w` and `b` are updated by the learning rate $\alpha$.
-- Since `w` and `b` are vectors, the vector multiplication and vector substraction is happening here`w = w - alpha*dw`.
-- Finally the values of w and b are returned.
-- This stays true to the original equation.
 
 >[!Note]
 >The equation is:
 >
 > $\frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j} = \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{x}^{(i)}) - y^{(i)}) x_{j}^{(i)} \tag{6}$
+
+
+- `dw` and `db` are the values returned after calculating the derivatives.
+- Then the values of `w` and `b` are updated by the learning rate $\alpha$.
+- Since `w` and `b` are vectors, the vector multiplication and vector substraction is happening here`w = w - alpha*dw`.
+- Finally the values of w and b are returned.
+- This stays true to the original equation.
 
 
 ## **The value prediction**
