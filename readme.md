@@ -282,12 +282,7 @@ $$\begin{align*} \text{repeat}&\text{ until convergence:} \ \lbrace \newline\
 
 where, n is the number of features, parameters $w_j$,  $b$, are updated simultaneously and where  
 
-$$
-\begin{align}
-\frac{\partial J(\mathbf{w},b)}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})x_{j}^{(i)} \tag{6}  \\
-\frac{\partial J(\mathbf{w},b)}{\partial b}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)}) \tag{7}
-\end{align}
-$$
+$$\begin{align}\frac{\partial J(\mathbf{w},b)}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})x_{j}^{(i)} \tag{6}  \\\frac{\partial J(\mathbf{w},b)}{\partial b}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})\tag{7}\end{align}$$
 * m is the number of training examples in the data set
 
     
@@ -298,8 +293,8 @@ $$
 
 >[!Note]
 > $w$ is a vector of size $n$ and $n$ is the number of features or columns in the ***training set X_train***.
-> ***$b$*** is a scalar.
-> ***$J_{(w,b)}$*** is a scalar as well.
+> *** $b$ *** is a scalar.
+> *** $J_{(w,b)}$ *** is a scalar as well.
 
 The gradient of the cost function needs to be calculated by  
 $$\frac{1}\{m}\sum_{i=0}^m [((\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$$
