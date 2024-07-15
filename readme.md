@@ -249,11 +249,11 @@ $$
 ### Matrix of x Features
 
 $$
-\mathbf{X} = 
+\overrightarrow{X} = 
 \begin{pmatrix}
  x^{(0)}_0 & x^{(0)}_1 & \cdots & x^{(0)}_{n-1} \\ 
  x^{(1)}_0 & x^{(1)}_1 & \cdots & x^{(1)}_{n-1} \\
- \cdots \\
+ \vdots & \vdots & \ddots & \vdots \\
  x^{(m-1)}_0 & x^{(m-1)}_1 & \cdots & x^{(m-1)}_{n-1} 
 \end{pmatrix}
 $$
@@ -266,9 +266,9 @@ notation:
 ### Model Prediction With Multiple Variables
 The model's prediction with multiple variables is given by the linear model:
 
-$$ f_{\mathbf{w},b}(\mathbf{x}) =  w_0x_0 + w_1x_1 +... + w_{n-1}x_{n-1} + b \tag{1}$$
+$$ f_{(\overrightarrow{w},b)}(\overrightarrow{x}) =  w_0x_0 + w_1x_1 + \cdots + w_{n-1}.x_{n-1} + b $$
 or in vector notation:
-$$ f_{\mathbf{w},b}(\mathbf{x}) = \mathbf{w} \cdot \mathbf{x} + b  \tag{2} $$ 
+$$ f_{\overrightarrow{w},b}(\overrightarrow{x}) = \overrightarrow{w} \cdot \overrightarrow{x} + b $$ 
 where $\cdot$ is a vector `dot product`
 
 ### Gradient Descent With Multiple Variables
@@ -363,14 +363,14 @@ return w,b
 
 >[!Note]
 >The equation is:
-> $$ \frac{\partial J(\mathbf{w},b)}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\mathbf{w},b}(\mathbf{x}^{(i)}) - y^{(i)})x_{j}^{(i)} \tag{6} $$
+> $ \frac{\partial J(\overrightwrrow{w},b)}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{x}^{(i)}) - y^{(i)})x_{j}^{(i)} \tag{6} $
 
 
 ## **The value prediction**
 
 >[!Note]
 >The equation
-> $$\overrightarrow{w}.\overrightarrow{x}^{(i)} +b$$
+> $\overrightarrow{w}.\overrightarrow{x}^{(i)} +b$
 
 ```python
 
