@@ -23,7 +23,7 @@ A field of study that gives the computers an ability to learn without being expl
 - ***$`f`$*** - Called the **Model** is the $Function$, that is produced after the training set data is fed into the Supervised training algorithm.
 - ***$`\hat{y}`$*** - **Prediction** that was produced from the function $f$ for input of $x$.
 
-### 1.3 Notation
+### Notation
 ---
 Here is a summary of some of the notations, updated for multiple features.  
 
@@ -177,7 +177,7 @@ return w,b
 > It is very important to note that the formula converted into code stays true to the its original meaning.
 > This is applicable for all the **ML** Algorithms.
 
-### Incorrect Approach:
+### Incorrect Approach (Univariate Linear Regression):
 
 The following approach may look like the updates of w and b are happening simultaneously but its is not the case.
 
@@ -308,13 +308,15 @@ So the values of $w_1$ all the way up till $w_n$ for $x^{(i)}_1$ to $x^{(i)}_n$ 
 
 In simpler terms all the features of the training set ***X_train*** is being summed from 1 ... n for w[1]...w[n]
 
-### **In Implementation**
+### **Implementing**
 
 
 The algorithm has three parts here as well roughly, 
 
 - **The cost function or error calculation** -  which in terms of the gradient descent algorithm translates to the derivative section of the algorithm, except that for multivalue linear regression models its a dot product of the vectors $(\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )$.
+
 - **The learning algorithm of Gradient descent** - The value of $w$ and $b$ is deducted from itelf times the learning rate $\alpha$.
+
 - **The value prediction** Using the multivalue linear regression model to calculate the predicted value.
 
 #### **Calculating the Derivative section of Gradient Descent Algorithm**
