@@ -42,7 +42,7 @@ Here is a summary of some of the notations, updated for multiple features.
 | \( b \)                           | parameter: bias                                                                                   | `b`                    |
 | $\( f_{\mathbf{w},b}(\mathbf{x}^{(i)}) \)$ | The result of the model evaluation at $\( \mathbf{x}^{(i)} \)$ parameterized by $\( \mathbf{w},b \): \( f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot \mathbf{x}^{(i)} + b \)$ | `f_wb`                 |
 
----
+
 
 ## Supervised Learning
 
@@ -53,7 +53,7 @@ In supervised learning the ML Algorithm is given an imput `x` and for every inpu
 1. Regression
 2. Classification
 
----
+
 
 ### 1. Regression
 
@@ -132,13 +132,14 @@ $$\frac{\partial }{\partial w}J_{(w,b)}$$
 
 $$\frac{\partial }{\partial b}J_{(w,b)}$$
 
----
-which is,
+
+**which is,**
+
 $$\frac{1}{m}\sum_{i=0}^m[(f_w,_b(x^{(i)})-y^{(i)}).x^{(i)}]$$ 
 
 $$\frac{1}{m}\sum_{i=0}^m [((w.x^{(i)} +b )-y^{(i)}).x^{(i)}]$$
 
----
+
 
 The code should compute the derivates and update values of $w$ and $b$ at once consistently,
 The updated values of $w$ and $b$ should not interfere with one another.
@@ -156,6 +157,7 @@ sum_b = sum_b/m
 return sum_w,sum_b
 
  ```
+
 After we need to update the values of $w$ and $b$ at the same time by reducing $\alpha$ of $\frac{\partial }{\partial w}J_{(w,b)}$ and $\frac{\partial }{\partial b}J_{(w,b)}$:
 
 ```python
@@ -170,6 +172,7 @@ for i in range(self.iter):
 return w,b
 
 ```
+
 >[!Note]
 > It is very important to note that the formula converted into code stays true to the its original meaning.
 > This is applicable for all the **ML** Algorithms.
@@ -245,7 +248,8 @@ $$
 
 ### Matrix of x Features
 
-$$\mathbf{X} = 
+$$
+\mathbf{X} = 
 \begin{pmatrix}
  x^{(0)}_0 & x^{(0)}_1 & \cdots & x^{(0)}_{n-1} \\ 
  x^{(1)}_0 & x^{(1)}_1 & \cdots & x^{(1)}_{n-1} \\
@@ -271,7 +275,7 @@ where $\cdot$ is a vector `dot product`
 
 Gradient descent for multiple variables:
 
-$$\begin{align*} \text{repeat}&\text{ until convergence:} \; \lbrace \newline\;
+$$\begin{align*} \text{repeat}&\text{ until convergence:} \ \lbrace \newline\
 & w_j = w_j -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial w_j} \tag{5}  \; & \text{for j = 0..n-1}\newline
 &b\ \ = b -  \alpha \frac{\partial J(\mathbf{w},b)}{\partial b}  \newline \rbrace
 \end{align*}$$
@@ -294,10 +298,12 @@ $$
 
 >[!Note]
 > $w$ is a vector of size $n$ and $n$ is the number of features or columns in the ***training set X_train***.
-> $b$ is a scalar.
-> $J_{(w,b)} is a scalar as well.
+> ***$b$*** is a scalar.
+> ***$J_{(w,b)}$*** is a scalar as well.
 
-The gradient of the cost function needs to be calculated by  $\frac{1}\{m}\sum_{i=0}^m [((\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$ .
+The gradient of the cost function needs to be calculated by  
+$$\frac{1}\{m}\sum_{i=0}^m [((\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$$
+
 So the values of $w_1$ all the way up till $w_n$ for $x^{(i)}_1$ to $x^{(i)}_n$ and summed.
 
 In simpler terms all the features of the training set ***X_train*** is being summed from 1 ... n for w[1]...w[n]
@@ -306,7 +312,8 @@ In simpler terms all the features of the training set ***X_train*** is being sum
 
 
 The algorithm has three parts here as well roughly, 
-- **the cost function or error calculation** -  which in terms of the gradient descent algorithm translates to the derivative section of the algorithm, except that for multivalue linear regression models its a dot product of the vectors $(\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )$.
+
+- **The cost function or error calculation** -  which in terms of the gradient descent algorithm translates to the derivative section of the algorithm, except that for multivalue linear regression models its a dot product of the vectors $(\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )$.
 - **The learning algorithm of Gradient descent** - The value of $w$ and $b$ is deducted from itelf times the learning rate $\alpha$.
 - **The value prediction** Using the multivalue linear regression model to calculate the predicted value.
 
