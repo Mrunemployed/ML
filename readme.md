@@ -40,7 +40,7 @@ Here is a summary of some of the notations, updated for multiple features.
 | \( n \)                           | number of features in each example                                                                | `n`                    |
 | \( \mathbf{w} \)                  | parameter: weight                                                                                 | `w`                    |
 | \( b \)                           | parameter: bias                                                                                   | `b`                    |
-| \( f_{\mathbf{w},b}(\mathbf{x}^{(i)}) \) | The result of the model evaluation at \( \mathbf{x}^{(i)} \) parameterized by \( \mathbf{w},b \): \( f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot \mathbf{x}^{(i)} + b \) | `f_wb`                 |
+| $\( f_{\mathbf{w},b}(\mathbf{x}^{(i)}) \)$ | The result of the model evaluation at $\( \mathbf{x}^{(i)} \)$ parameterized by $\( \mathbf{w},b \): \( f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot \mathbf{x}^{(i)} + b \)$ | `f_wb`                 |
 
 ---
 
