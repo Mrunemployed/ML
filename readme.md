@@ -363,7 +363,8 @@ return w,b
 
 >[!Note]
 >The equation is:
-> $ \frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{x}^{(i)}) - y^{(i)})x_{j}^{(i)} \tag{6} $
+>
+> $ \frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j} = \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{x}^{(i)}) - y^{(i)}) x_{j}^{(i)} \tag{6} $
 
 
 ## **The value prediction**
