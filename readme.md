@@ -248,6 +248,8 @@ $$
 
 ### Matrix of x Features
 
+
+
 $$
 \overrightarrow{X} = \begin{pmatrix}
  x^{(0)}_0 & x^{(0)}_1 & \cdots & x^{(0)}_{n-1} \\ 
@@ -257,9 +259,11 @@ $$
 \end{pmatrix}
 $$
 
+
+
 notation:
 
-- $\mathbf{x}^{(i)}$ is vector containing example i. $\mathbf{x}^{(i)}$  = $(x^{(i)}_0, x^{(i)}_1, \cdots,x^{(i)}_{n-1})$
+- $\mathbf{x}^{(i)}$ is vector containing example i. $\mathbf{x}^{(i)} = (x^{(i)}_0, x^{(i)}_1, \cdots , x^{(i)}_{n-1})$
 - $x^{(i)}_j$ is element j in example i. The superscript in parenthesis indicates the example number while the subscript represents an element. 
 
 ---
