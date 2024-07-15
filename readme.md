@@ -216,8 +216,8 @@ Using multiple values or features in Linear Regression model.
 | 1416            | 3                   | 2                | 40           | 232           |  
 | 852             | 2                   | 1                | 35           | 178           |  
 
- You will build a linear regression model using these values so you can then predict the price for other houses. For example, a house with 1200 sqft, 3 bedrooms, 1 floor, 40 years old.
 ---
+ You will build a linear regression model using these values so you can then predict the price for other houses. For example, a house with 1200 sqft, 3 bedrooms, 1 floor, 40 years old.
 
 
 X is no longer a single feature in this types of regression models. Instead x is a set of features.
