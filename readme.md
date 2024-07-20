@@ -202,7 +202,7 @@ $$\frac{\partial}{\partial w}J_{(w,b)} - \alpha . \frac{\partial}{\partial w}J_{
 
 the actual formula is: 
 
-$$ w -\alpha . \frac{\partial}{\partial w}J_{(w,b)}$$
+$$w -\alpha . \frac{\partial}{\partial w}J_{(w,b)}$$
 
 
 ### Multivalue Linear Regression
@@ -211,7 +211,7 @@ $$ w -\alpha . \frac{\partial}{\partial w}J_{(w,b)}$$
 > When we say the cost function is being calculated we are not referring to the ***Squared value cost function*** here.
 > Instead we are talking about the section of the formula which was derived from the fromula of gradient descent after solving it.
 > Gradient descent formula for w:
-> $$ \frac{\partial J(\overrightarrow{\w},b)}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} f_{\overrightarrow{\w},b}(\overrightarrow{\w}^{(i)}) - y^{(i)})x_{j}^{(i)} $$
+> $$\frac{\partial J(\overrightarrow{\w},b)}{\partial w_j}  &= \frac{1}{m} \sum\limits_{i = 0}^{m-1} f_{\overrightarrow{\w},b}(\overrightarrow{\w}^{(i)}) - y^{(i)})x_{j}^{(i)}$$
 > **vs**
 > Squared value cost function as we initially saw:
 > $$J_{(\overrightarrow{\w},b)} = \frac{1}{2m}\sum_{i=0}^m (f_{\overrightarrow{\w},b}(x^{(i)})-y^{(i)})^2$$
@@ -280,9 +280,9 @@ notation:
 
 The model's prediction with multiple variables is given by the linear model:
 
-$$ f_{(\overrightarrow{\w},b)}(\overrightarrow{\x}) =  w_0x_0 + w_1x_1 + \cdots + w_{n-1}.x_{n-1} + b $$
+$$f_{(\overrightarrow{\w},b)}(\overrightarrow{\x}) =  w_0x_0 + w_1x_1 + \cdots + w_{n-1}.x_{n-1} + b$$
 or in vector notation:
-$$ f_{\overrightarrow{\w},b}(\overrightarrow{\x}) = \overrightarrow{\w} \cdot \overrightarrow{\x} + b $$ 
+$$f_{\overrightarrow{\w},b}(\overrightarrow{\x}) = \overrightarrow{\w} \cdot \overrightarrow{\x} + b$$ 
 where $\cdot$ is a vector `dot product`
 
 ### Gradient Descent With Multiple Variables
@@ -452,7 +452,7 @@ $$\frac{x_1}{max(x_1)}$$
 
 For the above example - $x_1$ = `[2104,1416,852]`, $x_2$ = `[5,3,2]`
 
-applying the formula both features $ \frac{x_1}{max(x_1)} = \frac{2104}{2104} , \frac{1416}{2104} ,\frac{852}{2104}$
+applying the formula both features $\frac{x_1}{max(x_1)} = \frac{2104}{2104} , \frac{1416}{2104} ,\frac{852}{2104}$
 scaled $x_1$ = `[1,0.66,0.4]`
 scaled $x_2$ = `[1,0.6,0.4]`
 
@@ -464,7 +464,7 @@ If we were to plot the rescaled values of $x_1$ and $x_2$ we would get a more un
 - Substract $\mu$ from all values of feature set of $x_1$ and divide it by $max(x_1)-min(x_1)$
 - This will give a scalar in range of positive to negative.
 
-$$ \frac{x_1 - \mu _1}{max(x_1)-min(x_1)}$$
+$$\frac{x_1 - \mu _1}{max(x_1)-min(x_1)}$$
 
 
 
