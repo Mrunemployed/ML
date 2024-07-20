@@ -5,8 +5,8 @@ import math
 
 # X_train -> the features or inputs for training size in in 1000 sqft.
 # y_train -> the outputs or the target for training, price in 1000s of dollars.
-x_train = np.array([1.0,2.0])
-y_train = np.array([300.0,500.0])
+x_train = np.array([1.0,2.0,3.0,4.0])
+y_train = np.array([300.0,500.0,600.0,800.0])
 
 # prints the shape of the array, The shape of a NumPy array is a tuple that indicates the size of the array along each dimension. 
 # In this case, a is a 1-dimensional array with 2 elements, so its shape is (2,).
