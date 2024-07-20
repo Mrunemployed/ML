@@ -404,10 +404,10 @@ return p
 > When we say the cost function is being calculated we are not referring to the initial ***Squared value cost function*** here.
 > Instead we are talking about the section of the formula which finds the cost or **error margin** within the gradient descent algorithm formula after solving it.
 > Gradient descent formula for w:
-> $$ \frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j}  = \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{w}^{(i)}) - y^{(i)})x_{j}^{(i)} $$
+> $ \frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j}  = \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{w}^{(i)}) - y^{(i)})x_{j}^{(i)} $
 > **vs**
 > Squared value cost function as we initially saw:
-> $$J_{(\overrightarrow{w},b)} = \frac{1}{2m}\sum_{i=0}^m (f_{\overrightarrow{\w},b}(x^{(i)})-y^{(i)})^2$$
+> $$J_{(\overrightarrow{w},b)} = \frac{1}{2m}\sum_{i=0}^m (f_{\overrightarrow{w},b}(x^{(i)})-y^{(i)})^2$$
 > **The cost function we are referring to here:**
 >$$(f{\overrightarrow{w},b}(\overrightarrow{w}^{(i)}) - y^{(i)})$$
 
@@ -430,8 +430,8 @@ Consider the training set below:
 
 **Here,**
 
-If we were to plot the points in a scatter graph for $x axis at x_1$ and $y axis at x_2$ for $w_1$ and $w_2$ the cost function of the Gradient Descent : $J_{(\overrightarrow{\w},b)}$ which is a calculated by:
-Lets assume $w_1 = 50 , w_2 &= 10$   
+If we were to plot the points in a scatter graph for $x axis at x_1$ and $y axis at x_2$ for $w_1$ and $w_2$ the cost function of the Gradient Descent : $J_{(\overrightarrow{w},b)}$ which is a calculated by:
+Lets assume $w_1 = 50 , w_2 = 10$   
 **Then,** the scatter plot would be heavily focused on the $x_1$ axis and the **contour plot** would be a narrow elipse for $x_1$ and $x_2$ since $w_1$ would have to be a smaller value to impact the overall $x_1.w_1$ whereas $w_2$ can to be for $x_2.w_2$.
 
 **Why use Feature scaling?**
