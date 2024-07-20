@@ -431,7 +431,7 @@ Consider the training set below:
 **Here,**
 
 If we were to plot the points in a scatter graph for $x axis at x_1$ and $y axis at x_2$ for $w_1$ and $w_2$ the cost function of the Gradient Descent : $J_{(\overrightarrow{\w},b)}$ which is a calculated by:
-Lets assume $w_1 &= 50 , w_2 &= 10$   
+Lets assume $w_1 = 50 , w_2 &= 10$   
 **Then,** the scatter plot would be heavily focused on the $x_1$ axis and the **contour plot** would be a narrow elipse for $x_1$ and $x_2$ since $w_1$ would have to be a smaller value to impact the overall $x_1.w_1$ whereas $w_2$ can to be for $x_2.w_2$.
 
 **Why use Feature scaling?**
