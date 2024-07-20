@@ -404,7 +404,7 @@ return p
 > When we say the cost function is being calculated we are not referring to the initial ***Squared value cost function*** here.
 > Instead we are talking about the section of the formula which finds the cost or **error margin** within the gradient descent algorithm formula after solving it.
 > Gradient descent formula for w:
-> $ \frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j}  = \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{w}^{(i)}) - y^{(i)})x_{j}^{(i)} $
+> $\frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j}  = \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{w}^{(i)}) - y^{(i)})x_{j}^{(i)}$
 > **vs**
 > Squared value cost function as we initially saw:
 > $$J_{(\overrightarrow{w},b)} = \frac{1}{2m}\sum_{i=0}^m (f_{\overrightarrow{w},b}(x^{(i)})-y^{(i)})^2$$
