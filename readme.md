@@ -75,7 +75,7 @@ For the number of inputs `x` there should be the same number of outputs `y` in t
 > $f$ is the function that makes prediction  **$`\hat{y}`$** based on **$_{w,b}$** which are numbers for the input feature $`x`$. <br>
 >**Alternatively** or simply $f(x)$ = $wx+b$.
 
-![Model](image.png)
+![Model](imgs/image.png)
 
 The goal of the is to find a value of $w$ and $b$ such that $j_{(w,b)}$ - the cost function is at a minimum.
 
@@ -466,6 +466,114 @@ If we were to plot the rescaled values of $x_1$ and $x_2$ we would get a more un
 
 $$\frac{x_1 - \mu _1}{max(x_1)-min(x_1)}$$
 
+>**The advantage this scaling of features brings is a noticable reduction in the time taken by the algorithm of Gradient descent to Converge.**
+
+### Z-Score Normalization
+
+- Find mean of each **column or feature** of the training set.
+- Find the standard deviation of each **column/feature** of the training set.
+- element-wise, subtract mu for that column from each example, divide by standard deviation for that column
+
+```python
+# find the mean of each column/feature
+mu     = np.mean(self.x_t, axis=0)                 # mu will have shape (n,)
+# find the standard deviation of each column/feature
+sigma  = np.std(self.x_t, axis=0)                  # sigma will have shape (n,)
+# element-wise, subtract mu for that column from each example, divide by std for that column
+X_norm = (self.x_t - mu) / sigma
+
+```
+
+>[!Note]
+>**Each new set of inputs or features for which the value needs to be predicted `x_in` of shape n for `x_train` of size $mxn$ needs to be rescaled to fit the *normalized* values of `x_train`**
+> Lets say if ***Z-score-Normalization*** has been used to re-scale the values of `x_train` then the same values of `sigma` and `mu` that was generated while performing the normalization needs to be used to re-scale the values of `x_in`.
+
+
+## Scikit-Learn
+
+- **`scikit-learn`** is a free and open-source machine learning library for the Python programming language.
+- Through scikit-learn, we can implement various machine learning models for regression, classification, clustering, and statistical tools for analyzing these models.,
+
+So all the models,cost-function and learning algorithms that we have implemented from scratch for all the different types of *Regression* models as well as, all the other models that we are going to see moving forward can be implemented using **`scikit-learn`**.
+
+### Installing `sklearn`
+
+```python
+py -m pip install scikit-learn
+
+```
+or
+
+for python version < `3.8`
+
+```python
+pip install scikit-learn
+
+```
+
+### Using `sklearn`
+
+```python
+from sklearn.linear_model import SGDRegressor
+from sklearn.preprocessing import StandardScaler
+
+```
+
+`SGDRegressor` is a Linear model fitted by minimizing a regularized empirical loss with SGD.
+SGD stands for Stochastic Gradient Descent: the gradient of the loss is estimated each sample at a time and the model is updated along the way with a decreasing strength schedule (aka learning rate).
+In simple terms it enables the dev to implement the **Gradient Descent** algorithm and **squared value cost function** for **Linear Regression** models that we are familiar with.
+
+`StandardScaler` lets one implement ***z-score normalization*** for scaling the features if the value disparity is too large.
+
+>[!Note]
+>The Multivalue Linear Regression is being implemented by `sklearn` here. The model and learning algorithm are the same as what we have used so far. It just provides a better **framework** and less code to implement the same.
+
+**Scaling using `sklearn`**
+- This is how the features of training set `X_train` are normalized using `sklearn` implementing *z-score normalization**
+
+```python
+scaler = StandardScaler()
+x_t_scaled = scaler.fit_transform(X_train)
+
+```
+
+**Gradient Descent using `sklearn`** 
+- This following code implements the Gradient Descent algoritm and generates the values of `w` and `b`.
+- Iterations will continue untill the $^{min}_{\overrightarrow{w},b}J_{(\overrightarrow{w},b)}$ is reached and the Gradient Descent algorithm converges.
+
+```python
+sgdr = SGDRegressor(max_iter=10000)
+sgdr.fit(x_t_scaled,y_train)
+print(sgdr)
+print(f"number of iterations completed: {sgdr.n_iter_}, number of weight updates: {sgdr.t_}")
+
+```
+
+**Prediction using `sklearn`** 
+
+- $w$ and $b$ can be fetched after the `sklearn` model converges and then can be used to be applied to the lineear regression model $f_{w,b}$(x) = $wx+b$.
+
+```python
+w_norm = sgdr.intercept_
+b_norm = sgdr.coef_
+print(f"model parameters: w: {w_norm}, b:{b_norm}")
+
+```
+
+- Or one can simply use the `predict()` function to make the prediction
+
+```python
+res = sgdr.predict(x_t_scaled)
+print(res)
+
+```
+
+## Feature Engineering
+
+Using intuition and experience to design new features from existing features by transforming or combining them.
+
+![Model](imgs/feature-eng.png)
+
 
 
 ## 2. Classification
@@ -498,6 +606,28 @@ Diagnosis: Malignant (1) or Benign (0)
 
 - In classification the terms ***class*** and ***category*** are used interchangeably.
 - More than one inputs can be used. 
+- Prediction is either Positive `1` or Negative `0`.
+- When the problem does not aim to produce a numerical prediction but in terms of **yes** or **no**.
+
+### Why not use Linear Regression for Classification Problems?
+
+![Model](imgs/classification-lr.png)
+
+Although it is definitely possible to use Linear Regression to make a prediction but Linear Regression produces a scalar prediction, in terms of number.
+- Lets plot the `x_train` and `y_train` for the example above. The target is `y_train` which is 0 or 1, and the feature(s) are the sizes.
+- When plotted, the graph looks like as depicted above.
+- Now If we try to fit a straight line through the data trying to predict using Gradient Descent and linear Regresession Model we get a graph like ablove. *Blue line depicts the prediction graph*.
+- As shown in the figure above we can draw a decision making threshold from y-axis at lets say `0.5` now we can decalare that any values above this threshold is a **yes** and below it is **no**.
+- This creates a *Decision Boundary* like the blue intersecting line trhough the curve. Anything to the left of this line is a **no** or `0` and everything to the right is **yes** or `1`.
+- Gradually as we keep increasing the data we find the graph shifts towards the right developing a less steep slope, which ultimately leads to the *decision boundary* towards to right as well.
+- This is what causes the false predictions to occur.
+
+
+## Logistics Regression
+
+Logistic regression is a supervised machine learning algorithm that accomplishes binary classification tasks by predicting the probability of an outcome, event, or observation. The model delivers a binary or dichotomous outcome limited to two possible outcomes: yes/no, 0/1, or true/false.
+
+- The model uses sigmoid function to draw a `s-shaped` curve fitting all the training data and helps in decision making of whether the prediction should be `0 false` or `1 true`.
 
 
 ---
