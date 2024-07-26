@@ -611,9 +611,13 @@ Diagnosis: Malignant (1) or Benign (0)
 
 ### Why not use Linear Regression for Classification Problems?
 
+Although it is definitely possible to use Linear Regression to make a prediction but Linear Regression produces a scalar prediction, in terms of number.
+
+
 ![Model](imgs/classification-lr.png)
 
-Although it is definitely possible to use Linear Regression to make a prediction but Linear Regression produces a scalar prediction, in terms of number.
+
+
 - Lets plot the `x_train` and `y_train` for the example above. The target is `y_train` which is 0 or 1, and the feature(s) are the sizes.
 - When plotted, the graph looks like as depicted above.
 - Now If we try to fit a straight line through the data trying to predict using Gradient Descent and linear Regresession Model we get a graph like ablove. *Blue line depicts the prediction graph*.
