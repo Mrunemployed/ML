@@ -436,7 +436,7 @@ Lets assume $w_1 = 50 , w_2 = 10$
 
 **Why use Feature scaling?**
 
-- It helps to optimize Gradient Descent making it faster to reach the $^{min}_{w,b}J_{(w,b)}$
+- It helps to optimize Gradient Descent making it faster to reach the $`^{min}_{w,b}J_{(w,b)}`$
 - If left unscaled it will produce a graph where the values of a feature is heavily focused as compared to the others.
 - Gradient Descent runs faster.
 
@@ -539,7 +539,7 @@ x_t_scaled = scaler.fit_transform(X_train)
 
 **Gradient Descent using `sklearn`** 
 - This following code implements the Gradient Descent algoritm and generates the values of `w` and `b`.
-- Iterations will continue untill the $^{min}_{\overrightarrow{w},b}J_{(\overrightarrow{w},b)}$ is reached and the Gradient Descent algorithm converges.
+- Iterations will continue untill the $`^{min}_{\overrightarrow{w},b}J_{(\overrightarrow{w},b)}`$ is reached and the Gradient Descent algorithm converges.
 
 ```python
 sgdr = SGDRegressor(max_iter=10000)
