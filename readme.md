@@ -273,7 +273,7 @@ x^{(m-1)}_0 & x^{(m-1)}_1 & \cdots & x^{(m-1)}_{n-1}
 
 notation:
 
-- $\overrightarrow{w}^{(i)}$ is vector containing example i. $\overrightarrow{w}^{(i)} = (x^{(i)}_0, x^{(i)}_1, \cdots , x^{(i)}_{n-1})$
+- $\overrightarrow{w}^{(i)}$ is vector containing example i. $`\overrightarrow{w}^{(i)} = (x^{(i)}_0, x^{(i)}_1, \cdots , x^{(i)}_{n-1})`$
 - $x^{(i)}_j$ is element j in example i. The superscript in parenthesis indicates the example number while the subscript represents an element. 
 
 ---
@@ -282,9 +282,9 @@ notation:
 
 The model's prediction with multiple variables is given by the linear model:
 
-$$f_{(\overrightarrow{w},b)}(\overrightarrow{\x}) =  w_0x_0 + w_1x_1 + \cdots + w_{n-1}.x_{n-1} + b$$
+$$f_{(\overrightarrow{w},b)}(\overrightarrow{x}) =  w_0x_0 + w_1x_1 + \cdots + w_{n-1}.x_{n-1} + b$$
 or in vector notation:
-$$f_{\overrightarrow{w},b}(\overrightarrow{\x}) = \overrightarrow{w} \cdot \overrightarrow{\x} + b$$ 
+$$f_{\overrightarrow{w},b}(\overrightarrow{x}) = \overrightarrow{w} \cdot \overrightarrow{x} + b$$ 
 where $\cdot$ is a vector `dot product`
 
 ### Gradient Descent With Multiple Variables
@@ -314,7 +314,7 @@ $$\begin{align}\frac{\partial J(\overrightarrow{w},b)}{\partial w_j} = \frac{1}{
 > $J_{(w,b)}$ is a scalar as well.
 
 The gradient of the cost function needs to be calculated by  
-$$\frac{1}\{m}\sum_{i=0}^m [((\overrightarrow{w}.\overrightarrow{\x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$$
+$$\frac{1}\{m}\sum_{i=0}^m [((\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$$
 
 So the values of $w_1$ all the way up till $w_n$ for $x^{(i)}_1$ to $x^{(i)}_n$ and summed.
 
@@ -325,7 +325,7 @@ In simpler terms all the features of the training set ***X_train*** is being sum
 
 The algorithm has three parts here as well roughly, 
 
-- **The cost function or error calculation** -  which in terms of the gradient descent algorithm translates to the derivative section of the algorithm, except that for multivalue linear regression models its a dot product of the vectors $(\overrightarrow{w}.\overrightarrow{\x}^{(i)} +b )$.
+- **The cost function or error calculation** -  which in terms of the gradient descent algorithm translates to the derivative section of the algorithm, except that for multivalue linear regression models its a dot product of the vectors $(\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )$.
 
 - **The learning algorithm of Gradient descent** - The value of $w$ and $b$ is deducted from itelf times the learning rate $\alpha$.
 
@@ -352,7 +352,7 @@ return dw/m,db/m
 - This will give us the derivative of the gradient descent algorithm.
 - Here b is being calculated as usual since b is a scalar.
 - **j_wb is the error margin that is being calculated by a dot product of the vectors of $w$ and $x$.**
-- `dw[j] = dw[j] + j_wb*x_t[i,j]` **is the equivalent of $[((\overrightarrow{w}.\overrightarrow{\x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$**
+- `dw[j] = dw[j] + j_wb*x_t[i,j]` **is the equivalent of $[((\overrightarrow{w}.\overrightarrow{x}^{(i)} +b )-y^{(i)}).x^{(i)}_j]$**
 - `return dw/m,db/m` returns the derivative of the gradient descent after calculating the mean.
 
 >[!Tip]
@@ -378,7 +378,7 @@ return w,b
 >[!Note]
 >The equation is:
 >
-> $\frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j} = \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{\x}^{(i)}) - y^{(i)}) x_{j}^{(i)} \tag{6}$
+> $\frac{\partial J_{(\overrightarrow{w},b)}}{\partial w_j} = \frac{1}{m} \sum\limits_{i = 0}^{m-1} (f_{\overrightarrow{w},b}(\overrightarrow{x}^{(i)}) - y^{(i)}) x_{j}^{(i)} \tag{6}$
 
 
 - `dw` and `db` are the values returned after calculating the derivatives.
@@ -392,7 +392,7 @@ return w,b
 
 >[!Note]
 >The equation
-> $\overrightarrow{w}.\overrightarrow{\x}^{(i)} +b$
+> $\overrightarrow{w}.\overrightarrow{x}^{(i)} +b$
 
 ```python
 
