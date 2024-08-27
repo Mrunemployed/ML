@@ -165,7 +165,7 @@ learn = gradientDescent(X_train,y_train,alpha=alpha,itr=1500)
 w,b = learn.gradient_descent()
 
 
-nalpha = 9e-2
+nalpha = 7e-3
 scale = fscale(X_train,y_train)
 scale.set_mean_range()
 scaled_x_t = scale.mean_scale()
@@ -185,13 +185,14 @@ for i in range(X_train.shape[0]):
     print(f"res: {res:.2f} actual: {y_train[i]}")
     print(f"res: {res1:.2f} actual: {y_train[i]}")
 
-plt.legend
+plt.legend()
 plt.plot(X_train[:,0],resl,label='Prediction')
 plt.show()
 
 # Prediction using scaled x_in data
-q = np.array([[1104, 2, 1, 5]])
+q = np.array([[100, 2, 1, 15]])
 scale_q = scale.mean_scale(x_t=q)
+print(f"rescaled : {scale_q}")
 resq = np.dot(nw,scale_q[0])+nb
 print(f"Predicted price: $ {resq:.2f}")
 
